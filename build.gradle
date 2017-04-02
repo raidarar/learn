@@ -1,0 +1,36 @@
+buildscript {
+    ext.kotlin_version = '1.1.1'
+    ext.jna_version = '4.4.0'
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+    apply plugin: 'maven'
+    apply plugin: 'java'
+    apply plugin: 'kotlin'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlin_version
+    compile group: 'org.jetbrains.kotlin', name: 'kotlin-reflect', version: kotlin_version
+
+    compile group: 'net.java.dev.jna', name: 'jna', version: jna_version
+    compile group: 'net.java.dev.jna', name: 'jna-platform', version: jna_version
+
+    compile group: 'it.unimi.dsi', name: 'fastutil', version: '7.1.0'
+}
